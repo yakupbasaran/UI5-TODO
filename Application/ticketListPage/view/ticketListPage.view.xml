@@ -1,0 +1,111 @@
+<mvc:View
+	controllerName="SapUI5Tutorial.Application.ticketListPage.controller.ticketListPage"
+	xmlns="sap.ui.table"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:u="sap.ui.unified"
+    xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:c="sap.ui.core"
+	xmlns:m="sap.m"
+    height="100%">	
+	<m:Page
+		showHeader="false"
+		enableScrolling="true"
+		class="sapUiContentPadding">		
+		<m:content>
+		<m:FlexBox
+				height="100px"
+				alignItems="Start"
+				justifyContent="End">
+		<m:Button
+			icon="sap-icon://add"
+			type="Transparent"
+			text="Add Ticket"			
+			tooltip="show context of latest selection item"	        
+			press="addTicketButton"/>
+			<m:Button
+			icon="sap-icon://add"
+			type="Transparent"
+			text="Project"			
+			tooltip="show context of latest selection item"	        
+			press="addProjectButton"/>			
+			<m:Button
+			icon="sap-icon://visits"
+			text="Logout"
+			type="Transparent"
+			tooltip="show context of latest selection item"	 		
+			press="logPageButton"/>
+			<m:Button
+			icon="sap-icon://undo"
+			text="Back "
+			type="Transparent"
+			tooltip="show context of latest selection item"	 		
+			press="backPageButton"/>			
+			</m:FlexBox>
+			<Table id="tableView"
+				rows="{/ticketInformations}"				
+				selectionMode="None"
+				visibleRowCount="15"
+				paste="onPaste"				
+				ariaLabelledBy="title">
+				<contextMenu>
+		<u:Menu>
+		<u:MenuItem select="ContextMenu"  text="Add"/>
+		<u:MenuItem select="ContextMenu"  text="Update"/>
+		<u:MenuItem select="ContextMenu"  text="Delete"/>			
+		</u:Menu>		
+		</contextMenu>
+				<extension>				
+					<m:OverflowToolbar>					
+						<m:Title id="title" text="Ticket List"/>																
+					</m:OverflowToolbar>
+				</extension>
+				<columns>				
+					<Column  
+						filterProperty="Project" width="11rem">
+						<m:Label text="PROJECT" />
+						<template>
+							<m:Text text="{project}" wrapping="false" />
+						</template>
+					</Column>
+					<Column width="100%">
+						<m:Label text="SUBJECT" />
+						<template>
+							<m:Text id="subject" text="{subject}" wrapping="false" />
+						</template>
+					</Column>
+					<Column width="11rem">
+						<m:Label text="FROM" />
+						<template>
+							<m:Text text="{from}" wrapping="false" />
+						</template>
+					</Column>
+					<Column width="26rem">
+						<m:Label text="TO" />
+						<template>
+							<m:Text text="{to}" wrapping="false" />
+						</template>
+					</Column>
+					<Column width="8rem">
+						<m:Label text="STARTING DATE" />
+						<template>
+							<m:Text text="{startingdate}" wrapping="false" />
+						</template>
+					</Column>
+					<Column width="8rem">
+						<m:Label text="FINISH DATE" />
+						<template>
+							<m:Text text="{finishdate}" wrapping="false" />
+						</template>
+					</Column>
+					<Column width="8rem">
+						<m:Label text="STATUS"/>
+						<template>
+							<m:Text text="{status}" wrapping="false"  select="selectTicket" />
+						</template>
+					</Column>								
+				</columns>
+			</Table>
+		</m:content>
+	</m:Page>
+</mvc:View>

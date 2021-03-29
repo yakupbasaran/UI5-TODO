@@ -1,0 +1,42 @@
+<mvc:View controllerName="SapUI5Tutorial.Application.LoginPage.controller.LoginPage"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:l="sap.ui.layout"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" class="sapUiSizeCompact">
+    <Page title='' showHeader='false' class='w3-backGround'  enableScrolling='false'>
+        <content>       
+        <VBox justifyContent="Center" alignItems="Center">
+        <VBox justifyContent="Center" alignItems="Center" class="V-Kutu">             
+        <Label text="Email:" labelFor="inputEmail" class="labelLogin" />        
+		<Input
+            width="100%"
+			id="inputEmail"
+			type="Email"
+            value="{/loginInformations/email}"
+			placeholder="Enter your e-mail:"
+			class="inputLogin"
+            submit="login" />            
+            
+        <Label text="Password:" labelFor="inputPassword" class="labelLogin" />        
+		<Input
+        width="100%"
+			id="inputPassword"
+            type="Password"
+            value="{/loginInformations/password}"
+			placeholder="Enter your password:"
+			class="inputLogin"
+            submit="login" />          
+       <Button
+			icon="sap-icon://visits"
+			type="Transparent"
+			text="Login"
+            class="butonLogin"			
+			tooltip="show context of latest selection item"	        
+			press="login"/>	
+       </VBox>
+        </VBox>
+        </content>
+    </Page>
+</mvc:View>

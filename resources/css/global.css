@@ -1,0 +1,84 @@
+/* .sapMLabel {
+    color: #1cc1d6 !important;
+    font-weight: bolder !important;
+} */
+
+* {
+    /* color: rgb(20, 16, 16);   */
+    outline: none !important;
+}
+
+.navContainerControl {
+    /* border-color: #888;   */
+    border-style: solid;
+    border-width: 0.0625em;
+}
+
+.projectTable {
+    width: 100% !important;
+    padding-top: 1em !important;
+    color: red !important;
+    background-color: rgba(255, 228, 196, 0);
+}
+
+.sapUiTinyMarginTopBottom {
+    text-align: center;
+    font-size: 2em !important;
+    font-style: italic;
+}
+
+.a {
+    font-size: 25px !important;
+}
+
+.w3-backGround {
+    margin: 0px 0px 0px 0px !important;
+    height: 1000px !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 100% 100% !important;
+    background-image: url(https://goldwallpapers.com/uploads/posts/work-backgrounds/work_backgrounds_020.jpg);
+}
+
+.V-Kutu {
+    /* text-align: center !important; */
+    /* margin: 100px 550px !important; */
+    /* background-color: rgba(0, 0, 0, 0.295) !important; */
+    margin-top: 5em !important;
+    background-color: rgba(0, 0, 0, 0.24) !important;
+    height: 30em;
+    width: 25%;
+    border: 1px solid rgb(0, 0, 0) !important;
+}
+
+.labelLogin {
+    color: rgb(253, 253, 253);
+    font-size: 20px !important;
+    font-weight: lighter !important;
+    font-style: italic;
+}
+
+.butonLogin {
+    background-color: rgba(0, 0, 0, 0.212) !important;
+}
+
+.labelLogin .sapMLabel {
+    color: rgb(0, 0, 0) !important;
+}
+
+.sapMInputBaseInner {
+    background-color: rgba(212, 168, 102, 0.26) !important;
+    color: rgb(56, 52, 52) !important;
+}
+
+#__label0-bdi {
+    color: rgb(218, 192, 153) !important;
+}
+
+#__label1-bdi {
+    color: rgb(218, 192, 153) !important;
+}
+
+#__button0-inner {
+    color: rgb(151, 126, 93) !important;
+}

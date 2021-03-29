@@ -1,0 +1,92 @@
+<mvc:View controllerName="SapUI5Tutorial.Application.ticketCreationPage.controller.ticketCreationPage"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:b="SapUI5Tutorial.resources.component"
+    xmlns:l="sap.ui.layout"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" class="sapUiSizeCompact">
+    <Page enableScrolling="false" showHeader="false" class="sapUiContentPadding">
+        <content>      		
+			<FlexBox
+				direction="Column" alignItems="Center">
+                <Label text="Project: " labelFor="input-project" />
+				<ComboBox
+                id="comboBox"
+				selectedKey="{/ticket/project}"
+				items="{
+					path: '/projectValues',
+					sorter: { path: '/projectValues/id' }
+				}">
+				<core:Item key="{id}" text="{pro_title}" />                
+			</ComboBox>
+</FlexBox>
+<FlexBox
+				direction="Column" alignItems="Center">
+<Label text="Subject:  " labelFor="inputText" />
+                 <Input
+				 value="{/ticket/subject}"
+			          id="subjectInput"
+			          placeholder=""
+			          class="sapUiSmallMarginBottom" />
+                      </FlexBox>
+					  
+<FlexBox
+				direction="Column" alignItems="Center">
+<Label text="To:  " labelFor="inputText" />
+		<b:customMultiInput  width="100%"
+			id="multiInput"
+			liveWord="MultiControl"
+			suggestionItems="{
+				path: '/personValues',
+				sorter: { path: 'id' }
+			}"
+			showValueHelp="false">
+			<core:Item key="{id}" text="{name}" />
+		</b:customMultiInput>
+
+</FlexBox>              
+<FlexBox
+				direction="Column" alignItems="Center">
+<Label text="Starting date:" labelFor="DTI1"/>
+		<DateTimeInput
+		value="{/ticket/startingdate}"
+			id="DTI1"
+			type="Date"
+			placeholder=""
+			class="sapUiSmallMarginBottom" />
+</FlexBox>  
+<FlexBox
+				direction="Column" alignItems="Center">
+<Label text="Finish date:" labelFor="DTI2"/>
+		<DateTimeInput
+		value="{/ticket/finishdate}"
+			id="DTI2"
+			type="Date"
+			placeholder=""
+			class="sapUiSmallMarginBottom" />
+</FlexBox>  
+<FlexBox
+				direction="Column" alignItems="Center">
+                <Label text="Status: " labelFor="input-status" />
+				<ComboBox
+                id="comboBoxStatus"								
+				selectedKey="{/ticket/status}"
+				items="{
+					path: '/statusValues',
+					sorter: { path: '/statusValues/id' }
+				}">
+				<core:Item key="{id}" text="{ticketstatus}" />                
+			</ComboBox>
+</FlexBox>					  
+<FlexBox
+				height="100px"
+				alignItems="Center"
+				justifyContent="Center">
+<Button text="Save Ticket" press="saveTicket" id="save-update"/>
+<Button	id="deleteButton" visible="true" icon="sap-icon://delete" press="dropClickTicket"/>
+</FlexBox>  
+           </content>
+       
+    </Page>
+</mvc:View>

@@ -1,0 +1,95 @@
+<mvc:View
+	controllerName="SapUI5Tutorial.Application.adminPage.controller.adminPage"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    xmlns:l="sap.ui.layout"
+	xmlns:u="sap.ui.unified"
+	class="viewPadding">
+	<SplitApp
+		id="SplitAppDemo"
+		initialDetail="detail"
+		initialMaster="master"
+		orientationChange=".onOrientationChange">
+		<detailPages>		
+			<Page
+				id="detail"
+				title="ADMİN PANEL"
+				backgroundDesign= "Solid"
+				class="sapUiStdPage">        
+			<VBox id="inputs" width="50%"  visible="{/permission}" >       
+		<Label text="Person Name:" labelFor="inputText" id="nameLabel"/>
+		<Input 
+			id="nameInput"
+			value="{/information/per_name}"
+			placeholder="Name:"
+			class="sapUiSmallMarginBottom" />
+         <Label text="Person Surname:" labelFor="inputText" id="surnameLabel"/>
+        <Input
+			id="surnameInput"
+			value="{/information/per_surname}"
+			placeholder="Surname:"
+			class="sapUiSmallMarginBottom" />
+        <Label text="Person E-mail:" labelFor="inputText" id="emailLabel"/>
+        <Input
+			id="emailInput"
+			value="{/information/per_email}"
+			type="text"
+			placeholder="E-mail:"
+			class="sapUiSmallMarginBottom" />
+        <Label text="Person Password:" labelFor="inputText" id="passwordLabel"/>
+        <Input
+			id="passwordInput"
+			value="{/information/per_password}"
+			type="text"
+			placeholder="Password:"
+			class="sapUiSmallMarginBottom" />            
+	<l:VerticalLayout>
+		<u:FileUploader
+			id="fileUploader"
+			width="250%"
+            change="onChange"
+			name="myFileUpload"
+			value="{/information/per_img}"
+			uploadUrl="upload/"
+			tooltip="Upload your file to the local server"
+			uploadComplete="handleUploadComplete"/>
+</l:VerticalLayout>
+    	<Button id="save" text="SAVE" press="save"  type="Accept"/>
+        <Button id="update"  text="UPDATE"  press="update" type="Default"/>
+        <Button id="delete" text="DELETE"  press="delete" type="Reject"/>
+		</VBox>
+			</Page>
+			
+		</detailPages>    
+    	<masterPages>
+			<Page			
+				id="PERSONS"     
+				title="EMPLOYEES"
+				backgroundDesign= "List"
+				icon="sap-icon://action"
+				class="sapUiStdPage"
+				showNavButton="false" 
+				navButtonPress=".onPressMasterBack">
+				<content>
+                           <Button id="logout" text="LOGOUT" press="logout" type="Reject"/> 
+                           <Button id="projectList"  text="PROJECT LIST" press="projectList" type="Default"/>
+						   <Button id="tickettList"  text="TICKET LIST" press="gooTicketListButton" type="Default"/>
+        </content>
+				<List itemPress=".onListItemPress"
+				id="guList"
+                items="{/informations}"
+                select="onSelect"
+                 mode="SingleSelectMaster">
+					<items>
+				<StandardListItem 
+                title="{per_name} {per_surname}"
+				description="{per_email}"                
+				icon="{per_img}"
+                 type="Active" custom:to="detail"/>
+					</items>
+				</List>
+			</Page>
+		</masterPages>
+	</SplitApp>
+</mvc:View>

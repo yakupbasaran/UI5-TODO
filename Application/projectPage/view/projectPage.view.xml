@@ -1,0 +1,60 @@
+
+<mvc:View controllerName="SapUI5Tutorial.Application.projectPage.controller.projectPage"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:l="sap.ui.layout"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" class="sapUiSizeCompact">
+    <Page enableScrolling="false" showHeader="false" class="sapUiContentPadding">
+        <content>         
+	<Table id="productsTable" class="projectTable"
+	items="{/projects}">
+		<headerToolbar>
+			<OverflowToolbar>
+				<Title text="" level="H2"/>
+				<ToolbarSpacer/>				
+				<Button
+				app:param="addButtonsVisible"
+			text="Add Project"
+			width="550px"					
+			press=".onRejectDialogPress"				
+			class="sapUiSmallMarginBottom" />
+			<Button
+			text="Ticket List"
+			width="150px"
+			press="goTicketPage"
+			class="sapUiSmallMarginBottom" />
+			<Button
+			text="AdminPage"
+			width="150px"
+			press="goAdminPage"
+			class="sapUiSmallMarginBottom" />	
+				</OverflowToolbar>
+		</headerToolbar>
+		<columns>
+			<Column id="productCol" ><Text text="Project List" class="a"/></Column>									
+		</columns>
+		<items >
+			<ColumnListItem type="Active" press="onClick" width="100%">
+				<cells>
+					<ObjectIdentifier title="{pro_title}" text="" class="sapUiTinyMarginTopBottom" />	
+
+					<Text text="{Width} x {Depth} x {Height} {DimUnit}" />			 		
+					<ObjectNumber number="{WeightMeasure}" unit="{WeightUnit}"  
+						state="{
+							path: 'WeightMeasure',
+							formatter: 'sap.m.sample.TablePerso.Formatter.weightState'
+						}" />												
+					</cells>
+			</ColumnListItem>
+			</items>
+	</Table>
+        </content>
+    </Page>
+</mvc:View>
+
+
+
+
+
